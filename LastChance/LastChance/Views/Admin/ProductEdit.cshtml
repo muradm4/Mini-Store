@@ -1,0 +1,63 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+@using LastChance.ViewModel;
+@model AddProductModel
+
+
+@{
+    ViewData["Title"] = "ProductEdit";
+}
+
+<form action="/Admin/ProductEdit" method="post">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-12">
+                <h1>Edit Product</h1>
+                <hr />
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input value="@Model.Name" asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="Price">Price</label>
+                    <input value="@Model.Price" asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="Name">Description</label>
+                    <textarea asp-for="Description" value="@Model.Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            @for (int i = 0; i < Model.Categories.Count; i++)
+            {
+                <input type="hidden" name="Categories[@i].Id" value="@Model.Categories[i].Id" />
+                <input type="hidden" name="Categories[@i].Name" value="@Model.Categories[i].Name" />
+            }
+            @foreach (var item in ViewBag.Categories)
+            {
+                <div class="custom-control custom-checkbox mt-3">
+                    <input class="custom-control-input" type="checkbox" name="categoryIds" value="@item.Id" id="category_@(item.Id)" @(Model.Categories.Any(i => i.Id == item.Id) ? "checked" : "")>
+                    <label class="custom-control-label" for="category_@(item.Id)">
+                        @item.Name
+                    </label>
+                </div>
+
+            }
+
+        </div>
+    </div>
+</form>

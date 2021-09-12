@@ -1,0 +1,43 @@
+﻿@using LastChance.Identity
+@model IEnumerable<User>
+@{
+    ViewData["Title"] = "UserList";
+}
+
+<h1>User List</h1>
+<hr />
+<table id="myTable/" class="table table-bordered">
+    <thead>
+        <tr>
+            <td style="width:50px">FirstName</td>
+            <td style="width:50px">LastName</td>
+            <td style="width:80px">UserName</td>
+            <td style="width:100px">Email</td>
+            <td style="width:30px">Email Confirmed</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr class="@(item.EmailConfirmed?"":"bg-warning")">
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            <td>@item.EmailConfirmed</td>
+            <td>
+                <a href="/admin/users/@item.Id" class="btn btn-primary btn-sm mr-2">Edit</a>
+                <form action="/admin/UserDelete" method="post" style="display:inline;">
+                    <input type="hidden" name="Id" value="@item.Id" />
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+

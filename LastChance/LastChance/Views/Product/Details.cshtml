@@ -1,0 +1,27 @@
+﻿@*@model WorldTelecom.Models.Product
+@{
+    ViewData["Title"] = "Details";
+}
+
+@section Categories
+{
+    @await Component.InvokeAsync("Categories");
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+                <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-xr-red-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1551226038669" alt="Alternate Text" />
+            </div>
+            <div class="col-md-9">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text">@Model.Description</p>
+                <p class="card-text">
+                    <small>@Model.Price</small>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>*@

@@ -1,0 +1,106 @@
+﻿@using LastChance.ViewModel
+@model ProductPageModel
+
+@{
+    ViewData["Title"] = "List";
+}
+
+
+@{
+
+    var products = Model.Products;
+    int page = 0;
+}
+
+
+
+@if (products.Count == 0)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                Ürün yok
+            </div>
+        </div>
+    </div>
+}
+else
+{
+<div class="row">
+    <div class="col-md-4">
+        @await Component.InvokeAsync("Categories");
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            @foreach (var product in products)
+            {
+                <div class="col-md-4">
+                    @Html.Partial("_product", product)
+                </div>
+
+            }
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        @if (String.IsNullOrEmpty(Model.PageInfo.Category))
+                        {
+                            @if (Model.PageInfo.CurrentPage > 1)
+                            {
+                                <li class="page-item"><a class="page-link" href="/products?page=@(Model.PageInfo.CurrentPage-1)">Previous</a></li>
+                            }
+                            else
+                            {
+
+                                <li class="page-item"><a class="page-link" href="/products?page=1">Previous</a></li>
+                            }
+
+                            @for (int i = 0; i < Model.PageInfo.TotalPages(); i++)
+                            {
+                                <li class="page-item"><a class="page-link" href="/products?page=@(i+1)">@(i+1)</a></li>
+                            }
+                            @if (Model.PageInfo.CurrentPage >= Model.PageInfo.TotalPages())
+                            {
+                                <li class="page-item"><a class="page-link" href="/products?page=@(Model.PageInfo.TotalPages())">Next</a></li>
+                            }
+                            else
+                            {
+                                <li class="page-item"><a class="page-link" href="/products?page=@(Model.PageInfo.CurrentPage+1)">Next</a></li>
+                            }
+                        }
+                        else
+                        {
+                            @if (Model.PageInfo.CurrentPage > 1)
+                            {
+                                <li class="page-item"><a class="page-link" href="/products/@Model.PageInfo.Category?page=@(Model.PageInfo.CurrentPage-1)">Previous</a></li>
+                            }
+                            else
+                            {
+
+                                <li class="page-item"><a class="page-link" href="/products/@Model.PageInfo.Category?page=1">Previous</a></li>
+                            }
+
+                            @for (int i = 0; i < Model.PageInfo.TotalPages(); i++)
+                            {
+                                <li class="page-item"><a class="page-link" href="/products/@Model.PageInfo.Category?page=@(i+1)">@(i+1)</a></li>
+                            }
+                            @if (Model.PageInfo.CurrentPage >= Model.PageInfo.TotalPages())
+                            {
+                                <li class="page-item"><a class="page-link" href="/products/@Model.PageInfo.Category?page=@(Model.PageInfo.TotalPages())">Next</a></li>
+                            }
+                            else
+                            {
+                                <li class="page-item"><a class="page-link" href="/products/@Model.PageInfo.Category?page=@(Model.PageInfo.CurrentPage+1)">Next</a></li>
+                            }
+                        }
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+  
+}

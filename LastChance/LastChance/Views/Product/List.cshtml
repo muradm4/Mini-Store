@@ -1,0 +1,42 @@
+﻿@using Entity;
+@model List<Product>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+
+@{
+
+    var products = Model;
+
+}
+@section Categories{ 
+
+@await Component.InvokeAsync("Categories");
+
+}
+
+
+@if (products.Count == 0)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                Ürün yok
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        @foreach (var product in products)
+        {
+            <div class="col-md-3">
+                @Html.Partial("_product", product)
+            </div>
+
+        }
+    </div>
+}

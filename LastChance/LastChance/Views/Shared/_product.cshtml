@@ -1,0 +1,19 @@
+﻿@model Entity.Product
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="card">
+    <img class="card-img-top" src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-xr-red-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1551226038669" alt="">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <small class="text-muted">
+            @Model.Price
+        </small>
+    </div>
+    <div class="card-footer text-center">
+        <a href="/Shop/Details/@Model.Id" class="btn btn-primary">İncele</a>
+        <a href="/Product/AddtoCart/@Model.Id" class="btn btn-warning">Səbətə at</a>
+    </div>
+</div>

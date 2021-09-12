@@ -1,0 +1,28 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+@using LastChance.ViewModel
+@model AddCategoryModel
+@{
+    ViewData["Title"] = "AddCategory";
+}
+
+<div class="col-md-12">
+    <h1>Add  Category</h1>
+    <hr />
+
+    <form action="/Admin/Addcategory" method="post">
+
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="Url">Url</label>
+            <input asp-for="Url" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+
+</div>

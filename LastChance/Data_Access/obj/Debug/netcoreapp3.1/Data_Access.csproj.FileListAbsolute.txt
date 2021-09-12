@@ -1,0 +1,15 @@
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\bin\Debug\netcoreapp3.1\Entity.dll
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\obj\Debug\netcoreapp3.1\Data_Access.AssemblyInfoInputs.cache
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\obj\Debug\netcoreapp3.1\Data_Access.AssemblyInfo.cs
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\obj\Debug\netcoreapp3.1\Data_Access.csprojAssemblyReference.cache
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\bin\Debug\netcoreapp3.1\Data_Access.deps.json
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\bin\Debug\netcoreapp3.1\Data_Access.runtimeconfig.json
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\bin\Debug\netcoreapp3.1\Data_Access.runtimeconfig.dev.json
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\bin\Debug\netcoreapp3.1\Data_Access.dll
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\bin\Debug\netcoreapp3.1\Data_Access.pdb
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\bin\Debug\netcoreapp3.1\Entity.pdb
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\obj\Debug\netcoreapp3.1\Data_Access.csproj.CoreCompileInputs.cache
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\obj\Debug\netcoreapp3.1\Data_Access.csproj.CopyComplete
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\obj\Debug\netcoreapp3.1\Data_Access.dll
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\obj\Debug\netcoreapp3.1\Data_Access.pdb
+C:\Users\Murad\Desktop\Web\Murad\LastChance\Data_Access\obj\Debug\netcoreapp3.1\Data_Access.genruntimeconfig.cache

@@ -1,0 +1,39 @@
+﻿@using Entity;
+@model List<Category>
+@{
+    ViewData["Title"] = "CategoryList";
+}
+
+
+<h1>Admin Categories</h1>
+<hr />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            
+            <td style="width:320px"></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>
+                    <a href="/admin/categories/@item.Id" class="btn btn-primary btn-sm mr-2">Edit</a>
+                    <form action="/admin/CategoryDelete" method="post" style="display:inline;">
+                        <input type="hidden" name="Id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+

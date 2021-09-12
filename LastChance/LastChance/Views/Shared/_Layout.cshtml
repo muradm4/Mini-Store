@@ -1,0 +1,74 @@
+﻿@using Newtonsoft.Json;
+@using LastChance.ViewModel;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product</title>
+    <link href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet" /> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+        .popular {
+            color: green;
+            font-weight: 700;
+        }
+    </style>
+    <title>_Layout</title>
+</head>
+<body>
+    @Html.Partial("_navbar")
+
+
+
+
+    <main>
+        <div class="container">
+
+            @if (TempData["message"] != null)
+            {
+                var message = JsonConvert.DeserializeObject<AlertData>(TempData["message"] as String);
+
+
+
+                <div class="col-md-12">
+                    <div class="alert alert-@message.AlertType">
+                        @message.Message
+                    </div>
+                </div>
+
+
+
+            }
+
+
+
+
+
+            @RenderBody()
+
+
+        </div>
+    </main>
+    <script src="~/jquery/jquery.js"></script>
+    <script src="~/jquery-validate/jquery.validate.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>  
+    <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+        
+
+    </script>
+</body>
+
+</html>

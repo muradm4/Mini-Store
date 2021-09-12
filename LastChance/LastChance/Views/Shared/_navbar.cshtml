@@ -1,0 +1,85 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+    <div class="navbar bg-primary navbar-dark navbar-expand-sm">
+        <div class="container">
+            <a href="/" class="navbar-brand">ShopMarket</a>
+            <ul class="navbar-nav mr-auto">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a href="/admin/products" class="nav-link">Admin Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="shop" asp-action="list" class="nav-link">Product List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/products" class="nav-link">Admin Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/users" class="nav-link">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/roles" class="nav-link">Roles</a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="shop" asp-action="list" class="nav-link">Product List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Cart</a>
+                        </li>
+
+
+                    }
+
+
+                }
+                else
+                {
+
+                    <li class="nav-item">
+                        <a asp-controller="shop" asp-action="list" class="nav-link">Product List</a>
+                    </li>
+
+                }
+
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a href="/account/manage" class="nav-link">@User.Identity.Name</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/account/logout" class="nav-link">LogOut</a>
+                    </li>
+
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a asp-controller="account" asp-action="login" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/account/register" class="nav-link">Register</a>
+                    </li>
+
+                }
+
+            </ul>
+
+
+        </div>
+    </div>

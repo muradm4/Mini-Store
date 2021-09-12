@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+@using LastChance.Model;
+@model RegisterModel;
+
+
+<div class="col-md-12">
+    <h1>Add  Product</h1>
+    <hr />
+
+    <form action="/Account/Register" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label for="FirstName">FirstName</label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="LastName">LastName</label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="RePassword">RePassword</label>
+            <input asp-for="RePassword" class="form-control" />
+            <span asp-validation-for="RePassword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+</div>
+
+
